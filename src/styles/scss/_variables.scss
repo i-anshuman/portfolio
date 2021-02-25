@@ -1,0 +1,42 @@
+/* Light Theme Colours */
+$light: (
+  error: #b00020,
+  surface: #fff,
+  primary: #03a9f4,   // Shade 50
+  secondary: #ce93d8, // Shade 200
+  background: #fff,
+  primary-variant: #0091ea,   // Shade 700
+  secondary-variant: #4a148c, // Shade 900
+  on-error: #fff,
+  on-primary: #fff,
+  on-surface: #121212,
+  on-secondary: #121212,
+  on-background: #121212
+) !default;
+
+/* Light Theme Colours */
+$dark: (
+  error: #cf6679,
+  surface: #121212,
+  primary: #81d4fa,   // Shade 200
+  secondary: #ce93d8, // Shade 200
+  background: #121212,
+  primary-variant: #0091ea,   // Shade 700
+  secondary-variant: #9575cd, // Shade 200
+  on-error: #121212,
+  on-primary: #121212,
+  on-surface: #fff,
+  on-secondary: #121212,
+  on-background: #fff
+) !default;
+
+/* Breakpoints */
+$breakpoints: (
+  "mobileS": "319.98px",
+  "mobileM": "374.98px",
+  "mobileL": "424.98px",
+   "tablet": "767.98px",
+  "laptopS": "1023.98px",
+  "laptopM": "1439.98px",
+    "fourK": "2559.98px"
+) !default;
