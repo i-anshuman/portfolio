@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Ripple } from './styled';
 
-const RippleButton = ({ children, type, block, onClick, className, rippleStyle }) => {
+const RippleButton = ({ children, type, block, onClick, className, rippleStyle, ariaLabel }) => {
   const [ coords, setCoords ] = useState({ top: 0, left: 0, width: 0, height: 0 });
   const [ ripple, setRipple ] = useState(false);
 
@@ -41,6 +41,7 @@ const RippleButton = ({ children, type, block, onClick, className, rippleStyle }
         showRipple(e);
       }}
       disabled={ ripple }
+      aria-label={ ariaLabel }
     >
       { children }
       {
@@ -60,7 +61,8 @@ RippleButton.propTypes = {
   children: PropTypes.any.isRequired,
   block: PropTypes.bool,
   rippleStyle: PropTypes.object,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  ariaLabel: PropTypes.string
 };
 
 RippleButton.defaultProps = {
