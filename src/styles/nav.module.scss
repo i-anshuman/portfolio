@@ -10,8 +10,8 @@
   max-width: var(--nav-width);
   height: 100vh;
   grid-area: header;
-  color: var(--on-primary);
-  background: var(--grey-800);
+  color: var(--white);
+  background: var(--header-background);
 
   @media screen and (max-width: map-get($map: $breakpoints, $key: "tablet")) {
     display: none;
@@ -70,7 +70,7 @@
     }
 
     &__active {
-      color: var(--on-primary);
+      color: var(--primary);
       transform: scale(1.3);
     }
   }
@@ -78,6 +78,7 @@
   &__logo {
     width: var(--nav-width);
     height: var(--nav-width);
+    color: var(--primary);
     & > span {
       &:first-child {
         font-family: var(--brand);
@@ -106,6 +107,7 @@
       transition: left 0.3s ease-in-out;
 
       &:hover {
+        color: var(--secondary);
         left: 10px;
       }
     }

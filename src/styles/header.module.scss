@@ -8,9 +8,9 @@
   height: var(--header-outer-height);
   top: calc(var(--header-inner-height) - var(--header-outer-height));
   z-index: 10;
-  box-shadow: 0 2px 4px var(--grey-500);
-  color: var(--on-primary);
-  background: var(--grey-800);
+  box-shadow: 0 2px 4px var(--header-shadow);
+  color: var(--white);
+  background: var(--header-background);
 
   @media screen and (min-width: map-get($map: $breakpoints, $key: "tablet")) {
     display: none;
@@ -31,7 +31,7 @@
   &__brand {
     font-family: var(--brand);
     font-size: 2rem;
-    color: inherit;
+    color: var(--primary);
   }
 
   &__toggle_button {
@@ -41,7 +41,7 @@
     justify-content: center;
     align-items: center;
     background: inherit;
-    color: var(--on-primary);
+    color: var(--white);
 
     &:hover {
       background: var(--grey-700);
@@ -61,7 +61,7 @@
       display: inline-block;
       width: 100%;
       height: 3px;
-      background: var(--on-primary);
+      background: var(--white);
       transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
       border-radius: 4px;
       transform-origin: center;
@@ -79,6 +79,7 @@
     &:hover {
       & span {
         width: 100%;
+        background: var(--primary);
         &:first-child {
           width: 50%;
         }
@@ -113,7 +114,7 @@
     right: 40px;
     top: calc(100% + 20px);
     width: var(--menu-button-side);
-    color: var(--on-primary);
+    color: var(--white);
 
     & > div {
       width: 100%;
