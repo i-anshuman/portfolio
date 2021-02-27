@@ -15,6 +15,7 @@ const Header = props => {
         </span>
         <Button className={styles.header__toggle_button}
           onClick={() => handleToggle(state => !state)}
+          ariaLabel="Open Menu"
         >
           <div
             className={`${styles.header__hamburger} ${toggle && styles.header__hamburger__active}`}
