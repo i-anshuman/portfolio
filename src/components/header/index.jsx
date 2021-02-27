@@ -48,6 +48,7 @@ const Header = props => {
                     spy
                     smooth
                     isDynamic
+                    hashSpy
                     className={styles.header__menu__link}
                     activeClass={styles.header__menu__active}
                   >

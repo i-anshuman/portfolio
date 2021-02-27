@@ -18,6 +18,7 @@ const SideNav = props => {
               spy
               smooth
               isDynamic
+              hashSpy
               className={styles.nav__list__link}
               activeClass={styles.nav__list__active}
             >
