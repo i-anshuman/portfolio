@@ -1,0 +1,32 @@
+@mixin greet {
+  position: relative;
+  font-family: var(--brand);
+  font-size: 2rem;
+  margin-bottom: 40px;
+  display: inline-block;
+  color: var(--primary);
+
+  & > span {
+    display: inline-block;
+    margin: 0 2px;
+    transition: opacity, transform 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  }
+
+  &::after {
+    position: relative;
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: var(--primary);
+    animation: expand 2s ease forwards;
+    animation-delay: 2s;
+  }
+
+  @keyframes expand {
+    to {
+      width: 100%;
+    }
+  }
+}
