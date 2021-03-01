@@ -1,0 +1,127 @@
+@import './scss/mixins';
+
+.intro {
+  &__title {
+    & svg {
+      width: 100%;
+      fill: none;
+
+      & g {
+        fill: transparent;
+        stroke-width: 0.5mm;
+        stroke: var(--primary);
+        stroke-linecap: round;
+        fill-rule: evenodd;
+        animation: fill 0.5s ease forwards 8s;
+
+        & path {
+          animation: animate-stroke 2s ease forwards;
+          animation-delay: 3.5s;
+
+          &:nth-child(1){
+            stroke-dasharray: 270;
+            stroke-dashoffset: 270;
+            animation-delay: 3.8s;
+          }
+    
+          &:nth-child(2){
+            stroke-dasharray: 290;
+            stroke-dashoffset: 290;
+            animation-delay: 4.1s;
+          }
+    
+          &:nth-child(3){
+            stroke-dasharray: 230;
+            stroke-dashoffset: 230;
+            animation-delay: 4.4s;
+          }
+    
+          &:nth-child(4){
+            stroke-dasharray: 325;
+            stroke-dashoffset: 325;
+            animation-delay: 4.7s;
+          }
+    
+          &:nth-child(5){
+            stroke-dasharray: 260;
+            stroke-dashoffset: 260;
+            animation-delay: 5s;
+          }
+    
+          &:nth-child(6){
+            stroke-dasharray: 430;
+            stroke-dashoffset: 430;
+            animation-delay: 5.3s;
+          }
+    
+          &:nth-child(7){
+            stroke-dasharray: 240;
+            stroke-dashoffset: 240;
+            animation-delay: 5.6s;
+          }
+    
+          &:nth-child(8){
+            stroke-dasharray: 290;
+            stroke-dashoffset: 290;
+            animation-delay: 5.9s;
+          }
+        }
+      }
+    }
+
+    @keyframes animate-stroke {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  
+    @keyframes fill {
+      to {
+        fill: url(#galaxy);
+        stroke: transparent;
+      }
+    }
+  }
+
+  &__surname {
+    position: relative;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: var(--other);
+    align-self: center;
+    color: var(--primary);
+
+    & > span {
+      display: inline-block;
+      margin: 0 2px;
+      transition: opacity, transform 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      transition-delay: 8s;
+    }
+  }
+
+  &__profile {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--code);
+    align-self: center;
+    margin-top: 40px;
+
+    & span {
+      display: inline-block;
+      margin: 0 1px;
+      color: var(--secondary-variant);
+
+      &:first-child,
+      &:nth-child(17),
+      &:nth-child(18) {
+        color: var(--primary);
+      }
+    }
+  }
+
+  &__greet {
+    @include greet;
+  }
+}
