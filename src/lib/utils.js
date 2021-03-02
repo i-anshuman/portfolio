@@ -1,5 +1,11 @@
-export const toggleTheme = () => {
+export const changeTheme = theme => {
   const body = document.querySelector("body");
-  const theme = body.getAttribute('data-theme');
-  body.setAttribute('data-theme', theme === 'light' ? 'dark' : 'light');
+  body.setAttribute('data-theme', theme);
+};
+
+export const getThemePreference = () => {
+  if (window.matchMedia) {
+    return window.matchMedia('(prefers-color-scheme: dark').matches ? 'dark' : 'light';
+  }
+  return 'light';
 };
