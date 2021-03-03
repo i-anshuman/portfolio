@@ -1,0 +1,24 @@
+@import './scss/mixins';
+
+.about {
+  &__greet {
+    @include greet;
+  }
+
+  &__content {
+    max-width: 400px;
+    text-align: justify;
+
+    & > div {
+      transition: opacity, transform 1s ease;
+      transition-delay: 3s;
+    }
+  }
+
+  &__paragraph {
+    margin: 0 0 10px 0;
+    line-height: 150%;
+    font-size: 1.3rem;
+    font-family: var(--body);
+  }
+}
