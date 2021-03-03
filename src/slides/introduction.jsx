@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import AnimateText from '../components/animate-texts';
 import TypeText from '../components/type-text';
 import Title from '../components/title';
-import { surname, profile } from '../portfolio';
+import { surname, profile, homepage } from '../portfolio';
 import styles from '../styles/intro.module.scss';
 
 const Introduction = ({ className, id }) => {
@@ -25,7 +25,7 @@ const Introduction = ({ className, id }) => {
           </g>
           <defs>
             <pattern id="galaxy" patternUnits="userSpaceOnUse" width="100%" height="100%">
-              <image href="./galaxy.jpg"
+              <image href={`./${homepage}/galaxy.jpg`}
                 x="0" y="0" width="100%" height="100%"
                 preserveAspectRatio="xMidYMid slice"
               />
