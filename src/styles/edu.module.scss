@@ -1,0 +1,103 @@
+@import './scss/mixins';
+@import './scss/variables';
+
+.edu {
+  &__greet {
+    @include greet;
+  }
+
+  &__wrapper {
+    max-width: 400px;
+    margin: 10px 0;
+
+    & > div {
+      transition: opacity, transform 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      transition-delay: 3s;
+    }
+  }
+
+  &__timeline {
+    position: relative;
+    width: 100%;
+
+    & ul {
+      display: flex;
+      flex-direction: column;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 75px;
+        width: 4px;
+        height: 100%;
+        background: var(--on-background);
+        background: linear-gradient(transparent 5%, var(--on-background), transparent 95%);
+      }
+
+      & > li {
+        display: flex;
+        align-items: center;
+        transform-origin: center center;
+
+        &:hover {
+          &::before {
+            background: var(--primary);
+          }
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 68px;
+          height: 18px;
+          width: 18px;
+          background: var(--on-background);
+          clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        &:not(:last-of-type) {
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    & ul > li:hover &__qualification {
+      transform: scale(1.05);
+      color: var(--primary);
+    }
+    & ul > li:hover &__date {
+      color: var(--primary);
+    }
+
+    &__date,
+    &__qualification {
+      transition: 0.4s var(--tf-1);
+    }
+
+    &__date {
+      font-size: 1.5rem;
+      transition: 0.4s;
+      font-family: var(--body-2);
+      margin: 0;
+    }
+
+    &__qualification {
+      flex-grow: 1;
+      padding: 10px 0px 10px 50px;
+    }
+
+    &__degree {
+      margin: 0;
+      font-size: 1.4rem;
+      font-family: var(--body);
+    }
+
+    &__university {
+      margin: 10px 0 0;
+      font-size: 1rem;
+      font-family: var(--other);
+    }
+  }
+}
