@@ -10,8 +10,8 @@ const RippleButton = ({ children, type, block, onClick, className, rippleStyle, 
     const target = e.currentTarget;
     const positions = target.getBoundingClientRect();
     const page = {
-      x: e.pageX,
-      y: e.pageY
+      x: e.clientX,
+      y: e.clientY
     }
     const coords = {
       top: page.y - positions.y - (target.offsetWidth / 2),
