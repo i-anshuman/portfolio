@@ -1,0 +1,35 @@
+@import './scss/mixins';
+
+.skills {
+  &__greet {
+    @include greet;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+
+    & > div {
+      flex-grow: 1;
+      margin: 0 4px 8px;
+      transition: opacity, transform 1s ease;
+      transition-delay: 3s;
+    }
+  }
+}
+
+.skill {
+  background: var(--primary);
+  color: var(--on-primary);
+  font-family: var(--code);
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--primary-variant);
+  }
+}
