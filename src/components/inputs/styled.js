@@ -15,6 +15,7 @@ export const Label = styled.label`
   transition: all 0.4s var(--tf-1);
   color: var(--on-background);
   font-family: inherit;
+  pointer-events: none;
 
   & > span {
     display: inline-block;
