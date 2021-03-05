@@ -1,0 +1,86 @@
+.contact {
+  max-width: 400px;
+  width: 100%;
+  padding-bottom: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--dialog-bg);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px var(--dialog-shadow);
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__close,
+  &__prev,
+  &__next {
+    background: transparent;
+    color: var(--on-background);
+    padding: 5px;
+    margin: 10px 10px 0;
+    font-size: 1.35rem;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+  }
+
+  &__prev:hover {
+    color: var(--on-primary);
+    background: var(--primary);
+  }
+
+  &__close:hover {
+    color: var(--on-error);
+    background: var(--error);
+  }
+
+  &__next {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 0;
+  }
+
+  &__form {
+    position: relative;
+    margin: 0 20px 20px;
+  }
+
+  &__note {
+    margin: 20px 20px 0;
+    color: var(--on-background);
+    font-style: italic;
+    & b {
+      font-style: normal;
+    }
+  }
+
+  &__shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
