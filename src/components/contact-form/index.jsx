@@ -145,7 +145,7 @@ const ContactForm = ({ close }) => {
         </Button>
       </div>
       <small className={styles.contact__note}>
-        <b>&#x1F6C8;</b> Your information will never be shared with anyone.
+        <b>&#9432;</b> Your information will never be shared with anyone.
       </small>
       <Loader
         text="Sending..."
