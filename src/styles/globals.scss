@@ -38,19 +38,8 @@
   /* Menu Button */
   --menu-button-side: 50px;
 
-  /* Light Theme Colors */
-  --error: #{ map-get($map: $light, $key: error) };
-  --surface: #{ map-get($map: $light, $key: surface) };
-  --primary: #{ map-get($map: $light, $key: primary) };
-  --secondary: #{ map-get($map: $light, $key: secondary) };
-  --background: #{ map-get($map: $light, $key: background) };
-  --primary-variant: #{ map-get($map: $light, $key: primary-variant) };
-  --secondary-variant: #{ map-get($map: $light, $key: secondary-variant) };
-  --on-error: #{ map-get($map: $light, $key: on-error) };
-  --on-primary: #{ map-get($map: $light, $key: on-primary) };
-  --on-surface: #{ map-get($map: $light, $key: on-surface) };
-  --on-secondary: #{ map-get($map: $light, $key: on-secondary) };
-  --on-background: #{ map-get($map: $light, $key: on-background) };
+  /* Timing Function */
+  --tf-1: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
   /* 10 Shades of Grey */
   --grey-50: #{ map-get($map: $grey, $key: 50) };
@@ -65,33 +54,36 @@
   --grey-900: #{ map-get($map: $grey, $key: 900) };
   --white: #ffffff;
   --black: #000000;
+  --syntax: #{ map-get($map: $light-blue, $key: 500) };
+}
+
+/* Light Theme Colors */
+[data-theme='light'] {
+  --error: #{ map-get($map: $light, $key: error) };
+  --surface: #{ map-get($map: $light, $key: surface) };
+  --primary: #{ map-get($map: $light, $key: primary) };
+  --secondary: #{ map-get($map: $light, $key: secondary) };
+  --background: #{ map-get($map: $light, $key: background) };
+  --primary-variant: #{ map-get($map: $light, $key: primary-variant) };
+  --secondary-variant: #{ map-get($map: $light, $key: secondary-variant) };
+  --on-error: #{ map-get($map: $light, $key: on-error) };
+  --on-primary: #{ map-get($map: $light, $key: on-primary) };
+  --on-surface: #{ map-get($map: $light, $key: on-surface) };
+  --on-secondary: #{ map-get($map: $light, $key: on-secondary) };
+  --on-background: #{ map-get($map: $light, $key: on-background) };
 
   /* Navbar and Header Colors */
   --header-shadow: var(--grey-500);
   --header-background: var(--grey-900);
+  --dialog-shadow: var(--grey-600);
+  --dialog-bg: transparent;
+
+  /* Overlay Colors */
+  --overlay: rgba(#{hexToRGB(#fff)}, 0.8);
+  --on-overlay: var(--black);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --error: #{ map-get($map: $dark, $key: error) };
-    --surface: #{ map-get($map: $dark, $key: surface) };
-    --primary: #{ map-get($map: $dark, $key: primary) };
-    --secondary: #{ map-get($map: $dark, $key: secondary) };
-    --background: #{ map-get($map: $dark, $key: background) };
-    --primary-variant: #{ map-get($map: $dark, $key: primary-variant) };
-    --secondary-variant: #{ map-get($map: $dark, $key: secondary-variant) };
-    --on-error: #{ map-get($map: $dark, $key: on-error) };
-    --on-primary: #{ map-get($map: $dark, $key: on-primary) };
-    --on-surface: #{ map-get($map: $dark, $key: on-surface) };
-    --on-secondary: #{ map-get($map: $dark, $key: on-secondary) };
-    --on-background: #{ map-get($map: $dark, $key: on-background) };
-
-    /* Navbar and Header Colors */
-    --header-shadow: transparent;
-    --header-background: var(--black);
-  }
-}
-
+/* Dark Theme Colors */
 [data-theme='dark'] {
   --error: #{ map-get($map: $dark, $key: error) };
   --surface: #{ map-get($map: $dark, $key: surface) };
@@ -109,12 +101,19 @@
   /* Navbar and Header Colors */
   --header-shadow: transparent;
   --header-background: var(--black);
+  --dialog-shadow: transparent;
+  --dialog-bg: var(--grey-900);
+
+  /* Overlay Colors */
+  --overlay: rgba(#{hexToRGB(#000)}, 0.8);
+  --on-overlay: var(--white);
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  transition: color, background 0.4s ease-in-out;
 }
 
 ::selection {
@@ -131,7 +130,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--background);
-  transition: color, background 0.4s ease-in-out;
   min-width: 320px;
 }
 
@@ -140,6 +138,17 @@ a {
   outline: 0;
   color: inherit;
   text-decoration: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+  outline: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 #root {
@@ -151,43 +160,9 @@ a {
   display: grid;
   grid-template-areas: "header" "main";
   grid-template-columns: 1fr;
-  transition: color, background-color 0.4s ease-in-out;
 
   @media screen and (min-width: map-get($map: $breakpoints, $key: "tablet")) {
     grid-template-areas: "header main main";
     grid-template-columns: 100px 1fr;
   }
 }
-
-/*
-@media (prefers-color-scheme: light) {
-  :root {
-    --error: #{ map-get($map: $light, $key: error) };
-    --surface: #{ map-get($map: $light, $key: surface) };
-    --primary: #{ map-get($map: $light, $key: primary) };
-    --secondary: #{ map-get($map: $light, $key: secondary) };
-    --background: #{ map-get($map: $light, $key: background) };
-    --primary-variant: #{ map-get($map: $light, $key: primary-variant) };
-    --secondary-variant: #{ map-get($map: $light, $key: secondary-variant) };
-    --on-error: #{ map-get($map: $light, $key: on-error) };
-    --on-primary: #{ map-get($map: $light, $key: on-primary) };
-    --on-surface: #{ map-get($map: $light, $key: on-surface) };
-    --on-secondary: #{ map-get($map: $light, $key: on-secondary) };
-    --on-background: #{ map-get($map: $light, $key: on-background) };
-  }
-}
-
-[data-theme='light'] {
-  --error: #{ map-get($map: $light, $key: error) };
-  --surface: #{ map-get($map: $light, $key: surface) };
-  --primary: #{ map-get($map: $light, $key: primary) };
-  --secondary: #{ map-get($map: $light, $key: secondary) };
-  --background: #{ map-get($map: $light, $key: background) };
-  --primary-variant: #{ map-get($map: $light, $key: primary-variant) };
-  --secondary-variant: #{ map-get($map: $light, $key: secondary-variant) };
-  --on-error: #{ map-get($map: $light, $key: on-error) };
-  --on-primary: #{ map-get($map: $light, $key: on-primary) };
-  --on-surface: #{ map-get($map: $light, $key: on-surface) };
-  --on-secondary: #{ map-get($map: $light, $key: on-secondary) };
-  --on-background: #{ map-get($map: $light, $key: on-background) };
-}*/
