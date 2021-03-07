@@ -9,3 +9,5 @@ export const getThemePreference = () => {
   }
   return 'light';
 };
+
+export const openLink = link => window.open(link);
