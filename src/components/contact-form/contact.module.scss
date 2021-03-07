@@ -17,7 +17,8 @@
 
   &__close,
   &__prev,
-  &__next {
+  &__next,
+  &__close_status {
     background: transparent;
     color: var(--on-background);
     padding: 5px;
@@ -33,7 +34,8 @@
     background: var(--primary);
   }
 
-  &__close:hover {
+  &__close:hover,
+  &__close_status:hover {
     color: var(--on-error);
     background: var(--error);
   }
@@ -66,9 +68,48 @@
     perspective: 1000px;
   }
 
-  &__sending {
+  &__sending,
+  &__status {
     background: var(--overlay);
+    color: var(--on-overlay);
     border-radius: 5px;
+    transform: scale(0);
+    transition: transform 0.4s var(--tf-1);
+  }
+
+  &__status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &__success,
+    &__failed {
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 2rem;
+      font-family: var(--body);
+      margin: 0 0 10px 0;
+    }
+    &__success {
+      color: var(--primary);
+    }
+    &__failed {
+      color: var(--error);
+    }
+  }
+
+  &__close_status {
+    width: auto;
+    border-radius: 4px;
+    font-size: 1rem;
+    border: 1px solid var(--on-overlay);
+    padding: 0px 15px;
+  }
+
+  &__zoom {
+    transform: scale(1);
   }
 }
 

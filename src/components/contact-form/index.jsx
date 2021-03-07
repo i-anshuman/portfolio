@@ -3,6 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import Button from '../button';
 import Loader from '../loaders/page';
+import Overlay from '../overlay';
 import { Input } from '../inputs';
 import { validate } from '../../lib/validate';
 import { api } from '../../portfolio';
@@ -146,15 +147,28 @@ const ContactForm = ({ close }) => {
       <small className={styles.contact__note}>
         <b>&#x1F6C8;</b> Your information will never be shared with anyone.
       </small>
-      {
-        sending.status &&
-        <Loader
-          text="Sending..."
-          width={30}
-          height={60}
-          className={styles.contact__sending}
-        />
-      }
+      <Loader
+        text="Sending..."
+        width={30}
+        height={60}
+        className={`${styles.contact__sending} ${sending.status ? styles.contact__zoom : ""}`}
+      />
+      <Overlay className={`${styles.contact__status} ${sending.hasOwnProperty('sent') ? styles.contact__zoom : ""}`}>
+        <h1 className={`${sending.sent ? styles.contact__status__success : styles.contact__status__failed}`}>
+          {
+            sending.sent
+              ? "Sent Successfully"
+              : "Sending Failed"
+          }
+        </h1>
+        <Button
+          className={styles.contact__close_status}
+          ariaLabel="Close Message Dialog"
+          onClick={close}
+        >
+          Close
+        </Button>
+      </Overlay>
     </div>
   );
 };
