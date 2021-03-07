@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
-import { Input } from '../inputs';
 import Button from '../button';
+import Loader from '../loaders/page';
+import { Input } from '../inputs';
 import { validate } from '../../lib/validate';
+import { api } from '../../portfolio';
 import styles from './contact.module.scss';
 
 const fields = [
@@ -20,7 +23,7 @@ const fields = [
     type: "email",
     label: "your email",
     error: [
-      "May I've your email.",
+      "May I know your email?",
       "Looks like email is not valid."
     ]
   },
@@ -40,6 +43,7 @@ const ContactForm = ({ close }) => {
   const [error, handleError] = useState({});
   const [index, changeIndex] = useState(0);
   const [shake, handleShake] = useState(false);
+  const [sending, handleSending] = useState({});
 
   useEffect(() => {
     if (shake) {
@@ -85,7 +89,13 @@ const ContactForm = ({ close }) => {
 
   const sendMessage = () => {
     if (!error[fields[index].name] && data[fields[index].name]) {
-      console.log("Sending")
+      handleSending(status => ({...status, status: true}));
+      axios.post(api, data)
+        .then(({data}) => {
+          handleSending(status => ({...status, sent: data.ok}));
+        })
+        .catch(err => handleSending(status => ({...status, sent: false})))
+        .finally(() => handleSending(status => ({...status, status: false})));
     }
     else {
       handleShake(true);
@@ -119,6 +129,7 @@ const ContactForm = ({ close }) => {
           onChange={handleChange}
           onBlur={handleValidation}
           className={`${shake && styles.contact__shake}`}
+          autoComplete="off"
         />
         <Button
           className={styles.contact__next}
@@ -135,6 +146,15 @@ const ContactForm = ({ close }) => {
       <small className={styles.contact__note}>
         <b>&#x1F6C8;</b> Your information will never be shared with anyone.
       </small>
+      {
+        sending.status &&
+        <Loader
+          text="Sending..."
+          width={30}
+          height={60}
+          className={styles.contact__sending}
+        />
+      }
     </div>
   );
 };

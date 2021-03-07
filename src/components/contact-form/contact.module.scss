@@ -65,6 +65,11 @@
     backface-visibility: hidden;
     perspective: 1000px;
   }
+
+  &__sending {
+    background: var(--overlay);
+    border-radius: 5px;
+  }
 }
 
 @keyframes shake {
