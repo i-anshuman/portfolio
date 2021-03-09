@@ -57,7 +57,8 @@ const Contact = ({ className, id}) => {
               socials
                 .filter(({title}) => title !== 'Mail')
                 .map(({title, link, icon}, idx) => (
-                  <Button className={styles.contact__social__btn}
+                  <Button key={idx}
+                    className={styles.contact__social__btn}
                     onClick={() => openLink(link)}
                     ariaLabel={`Open ${title}`}
                   >
