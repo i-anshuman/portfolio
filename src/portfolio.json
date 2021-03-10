@@ -1,0 +1,143 @@
+{
+  "name": "Anshuman",
+  "surname": "Gupta",
+  "profile": "Full Stack Dev",
+  "picture": "https://avatars2.githubusercontent.com/u/56269970?s=460&v=4",
+  "email": "anshuman844@gmail.com",
+  "about": [
+    "Hard-working developer with a flair for creating elegant solutions in the least amount of time.",
+    "Proficient in full stack web development, using trending technologies. Passionate about implementing and launching new projects. Ability to translate business requirements into technical solutions.",
+    "Looking to start the career as an entry-level developer with a firm driven by technology."
+  ],
+  "education": [
+    {
+      "year": 2017,
+      "degree": "Bachelor of Computer Applications",
+      "university": "Indira Gandhi National Open University"
+    },
+    {
+      "year": 2019,
+      "degree": "Master of Computer Applications",
+      "university": "Indira Gandhi National Open University"
+    }
+  ],
+  "slides": [
+    {
+      "title": "Introduction",
+      "link": "introduction",
+      "icon": "fa fa-home"
+    },
+    {
+      "title": "About",
+      "link": "about",
+      "icon": "fa fa-user"
+    },
+    {
+      "title": "Education",
+      "link": "education",
+      "icon": "fa fa-graduation-cap"
+    },
+    {
+      "title": "Skills",
+      "link": "skills",
+      "icon": "fa fa-chess-queen"
+    },
+    {
+      "title": "Projects",
+      "link": "projects",
+      "icon": "fa fa-puzzle-piece"
+    },
+    {
+      "title": "Contact",
+      "link": "contact",
+      "icon": "fa fa-envelope"
+    }
+  ],
+  "socials": [
+    {
+      "title": "Blog",
+      "link": "https://i-anshuman.github.io/blog/",
+      "icon": "fas fa-blog"
+    },
+    {
+      "title": "LinkedIn",
+      "link": "https://www.linkedin.com/in/iAnshumanGupta/",
+      "icon": "fab fa-linkedin-in"
+    },
+    {
+      "title": "Twitter",
+      "link": "https://twitter.com/_AnshumanGupta",
+      "icon": "fab fa-twitter"
+    },
+    {
+      "title": "Github",
+      "link": "https://github.com/i-anshuman",
+      "icon": "fab fa-github"
+    },
+    {
+      "title": "Codepen",
+      "link": "https://codepen.io/ianshuman",
+      "icon": "fab fa-codepen"
+    },
+    {
+      "title": "Mail",
+      "link": "mailto:anshuman844@gmail.com",
+      "icon": "fa fa-at"
+    }
+  ],
+  "skills": [
+    "JavaScript",
+    "NodeJS",
+    "Sass",
+    "jQuery",
+    "React",
+    "Redux",
+    "MySQL",
+    "MongoDB",
+    "Data Structures",
+    "Algorithms",
+    "Git",
+    "Npm",
+    "REST API"
+  ],
+  "projects": [
+    {
+      "live": "https://live.url",
+      "code": "https://code.url",
+      "image": "./i-anshuman.github.io/galaxy.jpg",
+      "title": "Project Title",
+      "description": "A long long long long long description. A long long long long long description."
+    },
+    {
+      "live": "https://live.url",
+      "code": "https://code.url",
+      "image": "./i-anshuman.github.io/galaxy.jpg",
+      "title": "Project Title",
+      "description": "A long long long long description."
+    },
+    {
+      "live": "https://live.url",
+      "code": "https://code.url",
+      "image": "./i-anshuman.github.io/galaxy.jpg",
+      "title": "Project Title",
+      "description": "A long long long long description."
+    },
+    {
+      "live": "https://live.url",
+      "code": "https://code.url",
+      "image": "./i-anshuman.github.io/galaxy.jpg",
+      "title": "Project Title",
+      "description": "A long long long long description."
+    },
+    {
+      "live": "https://live.url",
+      "code": "https://code.url",
+      "image": "./i-anshuman.github.io/galaxy.jpg",
+      "title": "Project Title",
+      "description": "A long long long long description."
+    }
+  ],
+  "api": "https://ianshuman.herokuapp.com/send",
+  "baseurl": "/",
+  "homepage": "i-anshuman.github.io"
+}
