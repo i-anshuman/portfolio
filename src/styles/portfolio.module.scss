@@ -1,0 +1,31 @@
+@import './scss/variables';
+
+.main {
+  grid-area: main;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  user-select: none;
+}
+
+.theme_button {
+  position: fixed;
+  margin: 10px;
+  z-index: 10;
+
+  @media screen and (max-width: map-get($map: $breakpoints, $key: "tablet")) {
+    top: 120px;
+    left: 0;
+  }
+
+  @media screen and (min-width: map-get($map: $breakpoints, $key: "tablet")) {
+    top: 0;
+    right: 0;
+  }
+}
